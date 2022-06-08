@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Zain Ullah
-- 👀 I’m interested in Data Science
+- 👀 I’m interested in Data Science | Machine Learning | Automation | Crypto
 - 🌱 Currently Diving deep into Deep learning ;)
 - 💞️ Looking to collaborate on an opportunity in Data Science.
 - 📫 You can reach me at https://www.linkedin.com/in/zain-ullah-466aa4125/
