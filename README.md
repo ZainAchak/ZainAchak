@@ -46,7 +46,7 @@
 
 ---
 
-### 📅 This Year’s Activity
+### 📅 This Month's Activity
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=zainachak&theme=tokyo-night" alt="Zain's Activity Graph" />
