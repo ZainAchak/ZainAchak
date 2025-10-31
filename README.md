@@ -49,15 +49,19 @@ Python • JavaScript • TypeScript • SQL • TensorFlow • PyTorch • Reac
 ### ⭐ Community numbers (auto-updated)
 
 <!-- TOTAL_STARS -->
-**Total stars:** _calculating..._
+**Total stars:** 271
 <!-- TOTAL_STARS END -->
 
 <!-- YEAR_ACTIVITY -->
-**This year's contributions:** _calculating..._
+**This year's contributions (2025):** 254
+- Commits: 158
+- PRs: 2
+- Issues: 0
+- PR reviews: 0
 <!-- YEAR_ACTIVITY END -->
 
 <!-- TOP_LANGS -->
-**Top languages:** _calculating..._
+**Top languages:** C++ • Jupyter Notebook • C • Python • CMake • Java
 <!-- TOP_LANGS END -->
 
 ---
