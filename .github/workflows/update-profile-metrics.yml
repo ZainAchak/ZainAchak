@@ -1,0 +1,131 @@
+name: Update profile metrics (stars, year activity, top langs)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'  # optional: daily at 02:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  update-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Compute metrics and update README
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const username = 'zainachak';
+            async function listAllRepos() {
+              let page = 1;
+              const all = [];
+              while (true) {
+                const res = await github.rest.repos.listForUser({
+                  username,
+                  per_page: 100,
+                  page
+                });
+                if (!res.data || res.data.length === 0) break;
+                all.push(...res.data);
+                page++;
+              }
+              return all;
+            }
+
+            const repos = await listAllRepos();
+            const publicRepos = repos.filter(r => !r.private && !r.archived && r.owner.login.toLowerCase() === username.toLowerCase());
+            const totalStars = publicRepos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+
+            const langTotals = {};
+            for (const r of publicRepos) {
+              try {
+                const langsRes = await github.rest.repos.listLanguages({
+                  owner: username,
+                  repo: r.name
+                });
+                for (const [lang, bytes] of Object.entries(langsRes.data)) {
+                  langTotals[lang] = (langTotals[lang] || 0) + bytes;
+                }
+              } catch (e) {
+                core.warning(`Failed to fetch languages for ${r.name}: ${e.message}`);
+              }
+            }
+            const sortedLangs = Object.entries(langTotals)
+              .sort((a,b) => b[1] - a[1])
+              .slice(0,6)
+              .map(([lang]) => lang);
+
+            const now = new Date();
+            const year = now.getUTCFullYear();
+            const from = new Date(Date.UTC(year,0,1,0,0,0)).toISOString();
+            const to = now.toISOString();
+
+            const gql = `
+              query ($login: String!, $from: DateTime!, $to: DateTime!) {
+                user(login: $login) {
+                  contributionsCollection(from: $from, to: $to) {
+                    contributionCalendar {
+                      totalContributions
+                    }
+                    totalCommitContributions
+                    totalIssueContributions
+                    totalPullRequestContributions
+                    totalPullRequestReviewContributions
+                    totalRepositoryContributions
+                  }
+                }
+              }
+            `;
+
+            const gqlRes = await github.graphql(gql, { login: username, from, to });
+            const coll = gqlRes.user.contributionsCollection || {};
+            const calendarTotal = coll.contributionCalendar ? coll.contributionCalendar.totalContributions : 0;
+
+            const totalStarsBlock = `<!-- TOTAL_STARS -->\n**Total stars:** ${totalStars.toLocaleString()}\n<!-- TOTAL_STARS END -->`;
+            const yearActivityBlock = `<!-- YEAR_ACTIVITY -->\n**This year's contributions (${year}):** ${calendarTotal.toLocaleString()}\n- Commits: ${coll.totalCommitContributions || 0}\n- PRs: ${coll.totalPullRequestContributions || 0}\n- Issues: ${coll.totalIssueContributions || 0}\n- PR reviews: ${coll.totalPullRequestReviewContributions || 0}\n<!-- YEAR_ACTIVITY END -->`;
+            const topLangsBlock = `<!-- TOP_LANGS -->\n**Top languages:** ${sortedLangs.length ? sortedLangs.join(' • ') : 'None detected'}\n<!-- TOP_LANGS END -->`;
+
+            const readmePath = 'README.md';
+            const readRes = await github.rest.repos.getContent({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: readmePath
+            });
+            const sha = readRes.data.sha;
+            const content = Buffer.from(readRes.data.content, 'base64').toString('utf8');
+
+            let newContent = content;
+            if (/<!-- TOTAL_STARS -->[\s\S]*?<!-- TOTAL_STARS END -->/.test(newContent)) {
+              newContent = newContent.replace(/<!-- TOTAL_STARS -->[\s\S]*?<!-- TOTAL_STARS END -->/, totalStarsBlock);
+            } else {
+              newContent += `\n\n${totalStarsBlock}\n`;
+            }
+
+            if (/<!-- YEAR_ACTIVITY -->[\s\S]*?<!-- YEAR_ACTIVITY END -->/.test(newContent)) {
+              newContent = newContent.replace(/<!-- YEAR_ACTIVITY -->[\s\S]*?<!-- YEAR_ACTIVITY END -->/, yearActivityBlock);
+            } else {
+              newContent += `\n\n${yearActivityBlock}\n`;
+            }
+
+            if (/<!-- TOP_LANGS -->[\s\S]*?<!-- TOP_LANGS END -->/.test(newContent)) {
+              newContent = newContent.replace(/<!-- TOP_LANGS -->[\s\S]*?<!-- TOP_LANGS END -->/, topLangsBlock);
+            } else {
+              newContent += `\n\n${topLangsBlock}\n`;
+            }
+
+            if (newContent === content) {
+              core.info('No changes to README.md (content identical).');
+            } else {
+              await github.rest.repos.createOrUpdateFileContents({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: readmePath,
+                message: `chore: update profile metrics (stars=${totalStars}, year=${calendarTotal})`,
+                content: Buffer.from(newContent, 'utf8').toString('base64'),
+                sha
+              });
+              core.info('README.md updated successfully.');
+            }
