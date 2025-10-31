@@ -1,19 +1,27 @@
 # 👋 Hi, I’m Zain Ullah
 
-🚀 **Web App Developer | SaaS Builder | AI Integration (LLMs) | Data Scientist**
+🚀 **Web App Developer | SaaS Builder | AI Integration | Data Scientist**
 
 ---
 
-### 👨‍💻 About Me
-- 👀 I’m passionate about **Data Science**, **Machine Learning**, **Automation**, and **Crypto**
-- 🌱 Currently diving deep into **Deep Learning** and **AI Integration**
-- 💞️ Open to collaboration on exciting **AI / SaaS / Web App** projects
-- 📫 Reach me on [LinkedIn](https://www.linkedin.com/in/zain-ullah-466aa4125/)
+## 💻 About Me
+
+* **Core Focus:** Building high-impact **Web Applications** and scalable **SaaS products**.
+* **Specializing In:** Integrating **AI/Machine Learning (LLMs)** for advanced features and **Data Science** for insights.
+* **Passionate About:** **Data Science**, **Machine Learning**, **Automation**.
+* **Currently Exploring:** Deep diving into **Deep Learning** frameworks and practical **AI Integration**.
+* **Collaboration:** Always open to discussing and contributing to exciting **AI**, **SaaS**, or **Web App** projects.
+* **Connect:** Reach out on [**LinkedIn**](https://www.linkedin.com/in/zain-ullah-466aa4125/) to chat!
 
 ---
 
-### ⚙️ Tech Stack
-Python • JavaScript • TypeScript • SQL • TensorFlow • PyTorch • React • Next.js • Node.js • FastAPI • Docker • AWS
+## 🛠️ Tech Stack & Tools
+
+| Category | Technologies |
+| :--- | :--- |
+| **Languages** | **Python** • **JavaScript** • **TypeScript** • **POSTGRE** |
+| **Frameworks/Libraries** | **React** • **Next.js** • **Tailwind** • **FastAPI** |
+| **AI/ML** | **TensorFlow** • **PyTorch** |
 
 ---
 
@@ -49,19 +57,15 @@ Python • JavaScript • TypeScript • SQL • TensorFlow • PyTorch • Reac
 ### ⭐ Community numbers (auto-updated)
 
 <!-- TOTAL_STARS -->
-**Total stars:** 271
+**Total stars:** _calculating..._
 <!-- TOTAL_STARS END -->
 
 <!-- YEAR_ACTIVITY -->
-**This year's contributions (2025):** 254
-- Commits: 158
-- PRs: 2
-- Issues: 0
-- PR reviews: 0
+**This year's contributions:** _calculating..._
 <!-- YEAR_ACTIVITY END -->
 
 <!-- TOP_LANGS -->
-**Top languages:** C++ • Jupyter Notebook • C • Python • CMake • Java
+**Top languages:** _calculating..._
 <!-- TOP_LANGS END -->
 
 ---
