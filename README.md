@@ -29,7 +29,7 @@
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=zainachak&show_icons=true&theme=tokyonight" alt="Zain's GitHub stats" height="165" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=zainachak&theme=tokyonight" alt="Zain's GitHub streak" height="165" />
+  <img src="https://git-hub-streak-stats.vercel.app/?user=zainachak&theme=tokyonight" alt="Zain's GitHub streak" height="165" />
 </p>
 
 <p align="center">
