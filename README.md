@@ -38,14 +38,6 @@
 
 ---
 
-### 🏆 GitHub Trophies
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=zainachak&theme=tokyonight&no-bg=true&no-frame=true" alt="GitHub Trophies" />
-</p>
-
----
-
 ### 📅 This Month's Activity
 
 <p align="center">
