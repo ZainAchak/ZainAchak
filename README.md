@@ -25,27 +25,6 @@
 
 ---
 
-### 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=zainachak&show_icons=true&theme=tokyonight" alt="Zain's GitHub stats" height="165" />
-  <img src="https://git-hub-streak-stats.vercel.app/?user=zainachak&theme=tokyonight" alt="Zain's GitHub streak" height="165" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zainachak&layout=compact&theme=tokyonight" alt="Top Languages" />
-</p>
-
----
-
-### 📅 This Month's Activity
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=zainachak&theme=tokyo-night" alt="Zain's Activity Graph" />
-</p>
-
----
-
 ### ⭐ Community numbers (auto-updated)
 
 <!-- TOTAL_STARS -->
