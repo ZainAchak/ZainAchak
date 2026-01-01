@@ -32,9 +32,9 @@
 <!-- TOTAL_STARS END -->
 
 <!-- YEAR_ACTIVITY -->
-**This year's contributions (2025):** 302
-- Commits: 164
-- PRs: 2
+**This year's contributions (2026):** 0
+- Commits: 0
+- PRs: 0
 - Issues: 0
 - PR reviews: 0
 <!-- YEAR_ACTIVITY END -->
