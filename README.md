@@ -33,10 +33,6 @@
 
 <!-- YEAR_ACTIVITY -->
 **This year's contributions (2026):** 17
-- Commits: 0
-- PRs: 0
-- Issues: 0
-- PR reviews: 0
 <!-- YEAR_ACTIVITY END -->
 
 <!-- TOP_LANGS -->
