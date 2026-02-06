@@ -11,7 +11,7 @@
 * **Passionate About:** **Data Science**, **Machine Learning**, **Automation**.
 * **Currently Exploring:** Deep diving into **Deep Learning** frameworks and practical **AI Integration**.
 * **Collaboration:** Always open to discussing and contributing to exciting **AI**, **SaaS**, or **Web App** projects.
-* **Connect:** Reach out on [**LinkedIn**](https://www.linkedin.com/in/zain-ullah-466aa4125/) to chat!
+* **Connect:** Reach out on [**LinkedIn**](https://www.linkedin.com/in/zain-ullah-466aa4125/) or [**Website**](https://zainachak.com/)!
 
 ---
 
