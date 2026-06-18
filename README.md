@@ -28,7 +28,7 @@
 ### ⭐ Community numbers (auto-updated)
 
 <!-- TOTAL_STARS -->
-**Total stars:** 264
+**Total stars:** 263
 <!-- TOTAL_STARS END -->
 
 <!-- YEAR_ACTIVITY -->
