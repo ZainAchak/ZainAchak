@@ -61,6 +61,11 @@ jobs:
             // Rank by how many projects use a language, then by code size.
             const sortedLangs = Object.keys(langRepoCounts)
               .sort((a, b) => (langRepoCounts[b] - langRepoCounts[a]) || (langBytes[b] - langBytes[a]));
+            // Languages I use in projects that aren't public on GitHub.
+            const extraLangs = ['Rust', 'C++'];
+            for (const lang of extraLangs) {
+              if (!sortedLangs.includes(lang)) sortedLangs.push(lang);
+            }
 
             const badgeText = s => encodeURIComponent(String(s).replace(/-/g, '--').replace(/_/g, '__'));
             const badge = (label, message, color, logo, logoColor = 'white') =>
@@ -74,6 +79,7 @@ jobs:
               'HTML': ['E34F26', 'html5'],
               'CSS': ['663399', 'css'],
               'C++': ['00599C', 'cplusplus'],
+              'Rust': ['000000', 'rust'],
               'C': ['A8B9CC', 'c', 'black'],
               'Java': ['ED8B00', 'openjdk'],
               'Shell': ['4EAA25', 'gnubash'],
@@ -112,9 +118,9 @@ jobs:
             ];
             const yearActivityBlock = `<!-- YEAR_ACTIVITY -->\n<p align="center">\n${activityBadges.map(b => `  ${b}`).join('\n')}\n</p>\n<!-- YEAR_ACTIVITY END -->`;
             const langBadges = sortedLangs.map(lang => {
-              const [color, logo, logoColor] = langStyles[lang] || ['6B7280', ''];
-              const n = langRepoCounts[lang];
-              return `  ${badge(lang, `${n} ${n === 1 ? 'project' : 'projects'}`, color, logo, logoColor)}`;
+              const [color, logo, logoColor = 'white'] = langStyles[lang] || ['6B7280', ''];
+              return `  <img src="https://img.shields.io/badge/${badgeText(lang)}-${color}?style=for-the-badge` +
+                (logo ? `&logo=${logo}&logoColor=${logoColor}` : '') + `" alt="${lang}" />`;
             });
             const topLangsBlock = `<!-- TOP_LANGS -->\n<p align="center">\n${langBadges.length ? langBadges.join('\n') : '  None detected'}\n</p>\n<!-- TOP_LANGS END -->`;
 

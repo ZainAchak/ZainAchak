@@ -26,7 +26,7 @@ My background is a Master's in Data Science, so I'm as comfortable training a mo
 <table>
   <tr>
     <td><b>Languages</b></td>
-    <td><img src="https://skillicons.dev/icons?i=py,js,ts,html,css" alt="Python, JavaScript, TypeScript, HTML, CSS" /></td>
+    <td><img src="https://skillicons.dev/icons?i=py,js,ts,rust,cpp,html,css" alt="Python, JavaScript, TypeScript, Rust, C++, HTML, CSS" /></td>
   </tr>
   <tr>
     <td><b>Frontend</b></td>
@@ -46,18 +46,20 @@ My background is a Master's in Data Science, so I'm as comfortable training a mo
   </tr>
 </table>
 
-## 🧬 Languages Across My Projects
+## 🧬 Languages
 
-<sub>Counted from every one of my own public repositories (forks excluded). Refreshed every 3 hours by a GitHub Action.</sub>
+<sub>Languages from my projects, ordered by how often I use them. Kept up to date by a GitHub Action.</sub>
 
 <!-- TOP_LANGS -->
 <p align="center">
-  <img src="https://img.shields.io/badge/JavaScript-9%20projects-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript: 9 projects" />
-  <img src="https://img.shields.io/badge/CSS-9%20projects-663399?style=for-the-badge&logo=css&logoColor=white" alt="CSS: 9 projects" />
-  <img src="https://img.shields.io/badge/Python-7%20projects-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python: 7 projects" />
-  <img src="https://img.shields.io/badge/HTML-7%20projects-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML: 7 projects" />
-  <img src="https://img.shields.io/badge/Jupyter%20Notebook-3%20projects-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter Notebook: 3 projects" />
-  <img src="https://img.shields.io/badge/TypeScript-2%20projects-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript: 2 projects" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/CSS-663399?style=for-the-badge&logo=css&logoColor=white" alt="CSS" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+  <img src="https://img.shields.io/badge/Jupyter%20Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter Notebook" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust" />
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
 </p>
 <!-- TOP_LANGS END -->
 
