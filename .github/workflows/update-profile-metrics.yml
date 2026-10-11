@@ -2,7 +2,7 @@ name: Update profile metrics (stars, year activity, top langs)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 2 * * *'  # optional: daily at 02:00 UTC
+    - cron: '0 */3 * * *'  # every 3 hours
 
 permissions:
   contents: write
@@ -39,24 +39,45 @@ jobs:
             const publicRepos = repos.filter(r => !r.private && !r.archived && r.owner.login.toLowerCase() === username.toLowerCase());
             const totalStars = publicRepos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
 
-            const langTotals = {};
-            for (const r of publicRepos) {
+            // Languages come only from my own projects: forks are skipped,
+            // and so is this profile repo.
+            const ownRepos = publicRepos.filter(r => !r.fork && r.name.toLowerCase() !== username.toLowerCase());
+            const langRepoCounts = {};
+            const langBytes = {};
+            for (const r of ownRepos) {
               try {
                 const langsRes = await github.rest.repos.listLanguages({
                   owner: username,
                   repo: r.name
                 });
                 for (const [lang, bytes] of Object.entries(langsRes.data)) {
-                  langTotals[lang] = (langTotals[lang] || 0) + bytes;
+                  langRepoCounts[lang] = (langRepoCounts[lang] || 0) + 1;
+                  langBytes[lang] = (langBytes[lang] || 0) + bytes;
                 }
               } catch (e) {
                 core.warning(`Failed to fetch languages for ${r.name}: ${e.message}`);
               }
             }
-            const sortedLangs = Object.entries(langTotals)
-              .sort((a,b) => b[1] - a[1])
-              .slice(0,6)
-              .map(([lang]) => lang);
+            // Rank by how many projects use a language, then by code size.
+            const sortedLangs = Object.keys(langRepoCounts)
+              .sort((a, b) => (langRepoCounts[b] - langRepoCounts[a]) || (langBytes[b] - langBytes[a]));
+
+            const badgeText = s => encodeURIComponent(String(s).replace(/-/g, '--').replace(/_/g, '__'));
+            const badge = (label, message, color, logo, logoColor = 'white') =>
+              `<img src="https://img.shields.io/badge/${badgeText(label)}-${badgeText(message)}-${color}?style=for-the-badge` +
+              (logo ? `&logo=${logo}&logoColor=${logoColor}` : '') + `" alt="${label}: ${message}" />`;
+            const langStyles = {
+              'Python': ['3776AB', 'python'],
+              'JavaScript': ['F7DF1E', 'javascript', 'black'],
+              'TypeScript': ['3178C6', 'typescript'],
+              'Jupyter Notebook': ['F37626', 'jupyter'],
+              'HTML': ['E34F26', 'html5'],
+              'CSS': ['663399', 'css'],
+              'C++': ['00599C', 'cplusplus'],
+              'C': ['A8B9CC', 'c', 'black'],
+              'Java': ['ED8B00', 'openjdk'],
+              'Shell': ['4EAA25', 'gnubash'],
+            };
 
             const now = new Date();
             const year = now.getUTCFullYear();
@@ -84,9 +105,18 @@ jobs:
             const coll = gqlRes.user.contributionsCollection || {};
             const calendarTotal = coll.contributionCalendar ? coll.contributionCalendar.totalContributions : 0;
 
-            const totalStarsBlock = `<!-- TOTAL_STARS -->\n**Total stars:** ${totalStars.toLocaleString()}\n<!-- TOTAL_STARS END -->`;
-            const yearActivityBlock = `<!-- YEAR_ACTIVITY -->\n**This year's contributions (${year}):** ${calendarTotal.toLocaleString()}\n- Commits: ${coll.totalCommitContributions || 0}\n- PRs: ${coll.totalPullRequestContributions || 0}\n- Issues: ${coll.totalIssueContributions || 0}\n- PR reviews: ${coll.totalPullRequestReviewContributions || 0}\n<!-- YEAR_ACTIVITY END -->`;
-            const topLangsBlock = `<!-- TOP_LANGS -->\n**Top languages:** ${sortedLangs.length ? sortedLangs.join(' • ') : 'None detected'}\n<!-- TOP_LANGS END -->`;
+            const totalStarsBlock = `<!-- TOTAL_STARS -->\n<p align="center">\n  ${badge('Total stars', totalStars.toLocaleString('en-US'), 'F59E0B', 'github')}\n  ${badge('Projects', ownRepos.length, '0EA5E9', 'git')}\n</p>\n<!-- TOTAL_STARS END -->`;
+            const activityBadges = [
+              badge(`${year} contributions`, calendarTotal.toLocaleString('en-US'), '22C55E', 'githubactions'),
+              badge(`${year} public commits`, (coll.totalCommitContributions || 0).toLocaleString('en-US'), '6366F1', 'git'),
+            ];
+            const yearActivityBlock = `<!-- YEAR_ACTIVITY -->\n<p align="center">\n${activityBadges.map(b => `  ${b}`).join('\n')}\n</p>\n<!-- YEAR_ACTIVITY END -->`;
+            const langBadges = sortedLangs.map(lang => {
+              const [color, logo, logoColor] = langStyles[lang] || ['6B7280', ''];
+              const n = langRepoCounts[lang];
+              return `  ${badge(lang, `${n} ${n === 1 ? 'project' : 'projects'}`, color, logo, logoColor)}`;
+            });
+            const topLangsBlock = `<!-- TOP_LANGS -->\n<p align="center">\n${langBadges.length ? langBadges.join('\n') : '  None detected'}\n</p>\n<!-- TOP_LANGS END -->`;
 
             const readmePath = 'README.md';
             const readRes = await github.rest.repos.getContent({
