@@ -1,22 +1,20 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0EA5E9,100:6366F1&height=180&section=header&text=Zain%20Ullah&fontSize=56&fontColor=ffffff&fontAlignY=35&desc=Web%20Apps%20%C2%B7%20SaaS%20%C2%B7%20AI%20%C2%B7%20Data%20Science&descSize=18&descAlignY=58" width="100%" alt="Zain Ullah" />
-
 <div align="center">
 
-<a href="https://zainachak.com/">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=38BDF8&center=true&vCenter=true&width=600&lines=Web+App+Developer;SaaS+Builder;AI+%2F+LLM+Integration;Data+Scientist" alt="Web App Developer · SaaS Builder · AI Integration · Data Scientist" />
-</a>
+# Hi, I'm Zain Ullah 👋
 
-<p>
-  <a href="https://zainachak.com/"><img src="https://img.shields.io/badge/Website-zainachak.com-0EA5E9?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
-  <a href="https://www.linkedin.com/in/zain-ullah-466aa4125/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://github.com/zainachak"><img src="https://img.shields.io/github/followers/zainachak?label=Followers&style=for-the-badge&logo=github&color=181717" alt="GitHub followers" /></a>
-</p>
+**Web App Developer · SaaS Builder · AI & Data Science**
+
+I build web apps and SaaS products, and make them smarter with AI.
+
+[![Website](https://img.shields.io/badge/zainachak.com-0EA5E9?style=flat-square&logo=googlechrome&logoColor=white)](https://zainachak.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zain-ullah-466aa4125/)
+[![Followers](https://img.shields.io/github/followers/zainachak?label=Followers&style=flat-square&logo=github&color=181717)](https://github.com/zainachak)
 
 </div>
 
 ## 💻 About Me
 
-I build **web apps and SaaS products** end to end, and I like making them smarter with **AI, LLMs and data science**. My background is a Master's in Data Science, so I'm as comfortable training a model in PyTorch as I am shipping a Next.js app.
+My background is a Master's in Data Science, so I'm as comfortable training a model in PyTorch as I am shipping a Next.js app.
 
 - 🏗️ **Building** full-stack apps with React, Next.js and TypeScript
 - 🤖 **Integrating** LLMs and machine learning into real products
@@ -99,5 +97,3 @@ I'm always happy to chat about AI, SaaS and building great products.
 <img src="https://visitor-badge.laobi.icu/badge?page_id=ZainAchak.ZainAchak&left_text=Profile%20views&left_color=%23555555&right_color=%230EA5E9" alt="Profile views" />
 
 </div>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366F1,100:0EA5E9&height=110&section=footer" width="100%" alt="" />
