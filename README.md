@@ -81,7 +81,7 @@ My background is a Master's in Data Science, so I'm as comfortable training a mo
 
 <!-- YEAR_ACTIVITY -->
 <p align="center">
-  <img src="https://img.shields.io/badge/2026%20contributions-1%2C016-22C55E?style=for-the-badge&logo=githubactions&logoColor=white" alt="2026 contributions: 1,016" />
+  <img src="https://img.shields.io/badge/2026%20contributions-1%2C028-22C55E?style=for-the-badge&logo=githubactions&logoColor=white" alt="2026 contributions: 1,028" />
   <img src="https://img.shields.io/badge/2026%20public%20commits-8-6366F1?style=for-the-badge&logo=git&logoColor=white" alt="2026 public commits: 8" />
 </p>
 <!-- YEAR_ACTIVITY END -->
