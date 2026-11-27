@@ -74,14 +74,14 @@ My background is a Master's in Data Science, so I'm as comfortable training a mo
 
 <!-- TOTAL_STARS -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Total%20stars-264-F59E0B?style=for-the-badge&logo=github&logoColor=white" alt="Total stars: 264" />
+  <img src="https://img.shields.io/badge/Total%20stars-263-F59E0B?style=for-the-badge&logo=github&logoColor=white" alt="Total stars: 263" />
   <img src="https://img.shields.io/badge/Projects-17-0EA5E9?style=for-the-badge&logo=git&logoColor=white" alt="Projects: 17" />
 </p>
 <!-- TOTAL_STARS END -->
 
 <!-- YEAR_ACTIVITY -->
 <p align="center">
-  <img src="https://img.shields.io/badge/2026%20contributions-1%2C218-22C55E?style=for-the-badge&logo=githubactions&logoColor=white" alt="2026 contributions: 1,218" />
+  <img src="https://img.shields.io/badge/2026%20contributions-1%2C222-22C55E?style=for-the-badge&logo=githubactions&logoColor=white" alt="2026 contributions: 1,222" />
   <img src="https://img.shields.io/badge/2026%20public%20commits-8-6366F1?style=for-the-badge&logo=git&logoColor=white" alt="2026 public commits: 8" />
 </p>
 <!-- YEAR_ACTIVITY END -->
